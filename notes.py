@@ -95,4 +95,57 @@ print "Your fitst variable is:", first #first variable created from argument you
 print "Your second variable is:", second #second
 print "Your third variable is:", third #third
 
+#ex15.py
+#------------------------------------
+# opens file
+from sys import argv 
+script, filename = argv
+txt = open(filename)
+print "Here's your file %r:" % filename
+print txt.read()
+
+#ex16.py
+#------------------------------------
+# opens file
+target = open(filename, 'w') # opens fiel for writing
+target.truncate() # clears file
+#writes line + empty line into file
+line1 = raw_input("line 1: ")
+target.write(line1)
+target.write("\n")
+# close file
+target.close()
+
+#ex17.py
+#------------------------------------
+# copy from file to file
+from sys import argv
+from os.path import exists
+script, from_file, to_file = argv
+# length of the file
+print "The input file is %d bytes long" % len(indata)
+# checks if the output file exists
+print "Does theoutputfile exist? %r" % exists(to_file)
+
+#ex18.py
+#------------------------------------
+# functions
+#this one is like your scripts with argv
+def print_two(*args):
+	arg1, arg2 = args
+	print "arg1: %r, arg2: %r" % (arg1, arg2)
+# ok, that *args is actually pointless, we can just do this
+def print_two_again(arg1, arg2):
+	print "arg1: %r, arg2: %r" % (arg1, arg2)
+# this just takes one argument\
+def print_one(arg1):
+	print "arg1: %r" % arg1
+#this one takes no arguments
+def print_none():
+	print "I got nothin'."
+
+print_two("Zed","Shaw")
+print_two_again("Zed","Shaw")
+print_one("First!")
+print_none()
 
